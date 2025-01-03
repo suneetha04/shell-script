@@ -18,11 +18,25 @@ then # not installed
         echo "Installing Mysql... FAILURE"
         exit 1
     else
-         echo "Installing Mysql ... SUCCESS""
+         echo "Installing Mysql ... SUCCESS"
     fi
 else
     echo "MySQL is already ... INSTALLED"
 fi
+
+
+
+
+# if [ $? -ne 0 ]
+# then
+#     echo "Installing Git ... FAILURE"
+#     exit 1
+# else
+#     echo "Installing Git ... SUCCESS"
+# fi
+
+# dnf install git -y
+
 
 
 
