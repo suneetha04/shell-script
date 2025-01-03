@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 
-if [ $USERID -ne 0]
+if [ $USERID -ne 0 ]
 then 
   echo "EROR:: you must have sudo access to execute the this script"
   exit 1 #other than 0
