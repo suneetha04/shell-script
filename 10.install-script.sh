@@ -27,20 +27,6 @@ fi
 
 
 
-# if [ $? -ne 0 ]
-# then
-#     echo "Installing Git ... FAILURE"
-#     exit 1
-# else
-#     echo "Installing Git ... SUCCESS"
-# fi
-
-# dnf install git -y
-
-
-
-
-
 
 
 
