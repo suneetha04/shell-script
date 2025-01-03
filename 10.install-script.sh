@@ -24,6 +24,9 @@ else
     echo "MySQL is already ... INSTALLED"
 fi
 
+
+
+
 # if [ $? -ne 0 ]
 # then
 #     echo "Installing Git ... FAILURE"
