@@ -5,6 +5,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"]
+
 LOGS_FOLDER="/var/log/shell-script-logs"
 LOG_FILE=$(echo $0 | cut -d "." -f1 )
 TIMESTAMP=$(date +%y-%m-%d-%H-%M-%S)
@@ -28,22 +29,14 @@ then
    exit1 #other than 0
 fi
 
-dnf list installed mysql  &>>$LOG_FILE_NAME
-
-if [ $? -ne 0 ]
-then # not installed
-   dnf install mysql -y  &>>$LOG_FILE_NAME
-   VALIDATE $? "Installing MySQL"
-else
-   echo -e "MySQL is already ....$Y installed $N"
-fi
-
-dnf list installed git  &>>$LOG_FILE_NAME
-
-if [ $? -ne 0 ]
-then
-   dnf install git -y &>>$LOG_FILE_NAME
-   VALIDATE $? "Installing GIT"
-else
-   echo  -e "GIT is already....$Y installed $N"
-fi
+for package in $@
+do
+  dnf list installed $package &>>$LOG_FILE_NAME
+  if [ $? -ne 0 ]
+  then
+     dnf install $package -y &>>$LOG_FILE_NAME
+	 VALIDATE $? "Installing $package"
+ else
+    echo -e "$package is already $Y....INSTALLED $N"
+ fi
+done
